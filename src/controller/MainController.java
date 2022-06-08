@@ -40,6 +40,9 @@ public class MainController {
 
         for (int i = 0; i < cantidad; i++) {
             int indexCajero = this.getRandomCajero();
+            // Colocamos el tiempo de espera al cliente
+            Repository.getInstance().clientes.get(this.getRandomCliente()).setTiempoEspera(this.getRandomBetween(5, 150));
+
             Turno turno = new Turno(
                     Repository.getInstance().cajeros.get(indexCajero),
                     Repository.getInstance().clientes.get(this.getRandomCliente())

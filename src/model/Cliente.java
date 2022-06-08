@@ -6,8 +6,11 @@ import java.util.Random;
 
 public class Cliente extends Persona {
 
+    private int tiempoEspera;
+
     public Cliente() {
         super();
+        this.tiempoEspera = 0;
     }
 
     public Cliente(
@@ -16,6 +19,25 @@ public class Cliente extends Persona {
             String apellido
     ) {
         super(id, nombre, apellido);
+        this.tiempoEspera = 0;
+    }
+
+    public Cliente(
+            long id,
+            String nombre,
+            String apellido,
+            int tiempoEspera
+    ) {
+        super(id, nombre, apellido);
+        this.tiempoEspera = tiempoEspera;
+    }
+
+    public int getTiempoEspera() {
+        return this.tiempoEspera;
+    }
+
+    public void setTiempoEspera(int tiempoEspera) {
+        this.tiempoEspera += tiempoEspera;
     }
 
     public static Cliente fromPersona(Persona persona) {
@@ -41,6 +63,7 @@ public class Cliente extends Persona {
                 "id=" + getId() +
                 ", nombre='" + getNombre() + '\'' +
                 ", apellido='" + getApellido() + '\'' +
+                ", tiempo_espera='" + tiempoEspera + '\'' +
                 '}';
     }
 
