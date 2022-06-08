@@ -26,7 +26,7 @@ public class TurnoView {
                 new ListBuilder<MenuItem>()
                         .add(new MenuItem("Generar turnos", generar))
                         .add(new MenuItem("Agendar cita", agendarCita))
-                        .build(), "Reportes clientes");
+                        .build(), "Turnos");
 
         menu.iniciar();
     }
