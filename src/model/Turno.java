@@ -32,4 +32,20 @@ public class Turno {
         this.tiempoAtencion = tiempoAtencion;
     }
 
+    public Cajero getCajero() {
+        return this.cajero;
+    }
+
+    public Cliente getCliente() {
+        return this.cliente;
+    }
+
+    public LocalDate getFecha() {
+        return this.fecha;
+    }
+
+    public int getTiempoAtencion() {
+        return this.tiempoAtencion;
+    }
+
 }

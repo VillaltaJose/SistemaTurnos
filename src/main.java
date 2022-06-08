@@ -1,15 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-
-import model.Cliente;
-import model.menu.Menu;
-import model.menu.MenuItem;
-import model.utilitarios.ListBuilder;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.sun.tools.javac.Main;
+import view.MainView;
 
 /**
  *
@@ -22,8 +12,7 @@ public class main {
      */
     public static void main(String[] args) {
 
-
-
+        MainView view = new MainView();
     }
     
 }

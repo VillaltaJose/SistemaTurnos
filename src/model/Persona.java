@@ -12,9 +12,9 @@ import java.util.Random;
 
 public class Persona {
 
-    public long id;
-    public String nombre;
-    public String apellido;
+    private long id;
+    private String nombre;
+    private String apellido;
 
     public Persona() { }
 
@@ -48,7 +48,7 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public List<Persona> generar(int cantidad) {
+    public static List<Persona> generar(int cantidad) {
         List<String> nombres = obtenerNombresJson();
         List<String> apellidos = obtenerApellidosJson();
 
@@ -66,7 +66,7 @@ public class Persona {
         return personas;
     }
 
-    private List<String> obtenerNombresJson() {
+    private static List<String> obtenerNombresJson() {
         try {
             Gson gson = new Gson();
             Reader reader = Files.newBufferedReader(Paths.get("src/names.json"));
@@ -82,7 +82,7 @@ public class Persona {
         }
     }
 
-    private List<String> obtenerApellidosJson() {
+    private static List<String> obtenerApellidosJson() {
         try {
             Gson gson = new Gson();
             Reader reader = Files.newBufferedReader(Paths.get("src/lastnames.json"));
