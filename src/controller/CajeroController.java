@@ -1,6 +1,7 @@
 package controller;
 
 import model.Cajero;
+import model.Cliente;
 import model.Repository;
 
 import java.util.List;
@@ -19,6 +20,15 @@ public class CajeroController {
         Repository.getInstance().cajeros = Repository.getInstance().cajeros.stream()
             .sorted((c1, c2) -> Integer.compare(c2.getNroTurnos(), c1.getNroTurnos()))
             .toList();
+    }
+
+    public Cajero obtenerCajero(long id) {
+        return Repository.getInstance().cajeros.stream().filter(c -> c.getId() == id).findFirst().get();
+    }
+
+    public Cajero obtenerCajero(String nombre) {
+        return Repository.getInstance().cajeros.stream().filter(c -> c.getNombre().equalsIgnoreCase(nombre))
+                .findFirst().get();
     }
 
 }

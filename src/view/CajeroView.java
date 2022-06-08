@@ -1,12 +1,15 @@
 package view;
 
 import controller.CajeroController;
+import model.Cliente;
 import model.Repository;
 import model.menu.IMenuCall;
 import model.menu.Menu;
 import model.menu.MenuItem;
 import model.utilitarios.ListBuilder;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CajeroView {
@@ -24,8 +27,10 @@ public class CajeroView {
         System.out.println("");
         Menu menu = new Menu(
             new ListBuilder<MenuItem>()
-                .add(new MenuItem("Mostrar clientes atendidos por cajero", listar))
+                .add(new MenuItem("Listar cajeros", listar))
+                .add(new MenuItem("Mostrar clientes atendidos por cajero", listarClientesPorCajero))
                 .add(new MenuItem("Ordenar por numero de personas atendidas", ordenarCajeros))
+                .add(new MenuItem("Buscar cajero", buscarCajeroNombre))
         .build(), "Reportes Cajeros");
 
         menu.iniciar();
@@ -34,5 +39,19 @@ public class CajeroView {
     public IMenuCall listar = () -> this.controller.obtenerCajeros().forEach(System.out::println);
 
     public IMenuCall ordenarCajeros = () -> this.controller.ordenar();
+
+    public IMenuCall listarClientesPorCajero = () -> {
+        System.out.print("Ingrese el ID del cajero a consultar > ");
+        long id = this.in.nextLong();
+
+        this.controller.obtenerCajero(id).getTurnos().forEach(t -> System.out.println(t.getCliente()));
+    };
+
+    public IMenuCall buscarCajeroNombre = () -> {
+        System.out.print("Ingrese el nombre del cajero a consultar > ");
+        String nombre = this.in.next();
+
+        this.controller.obtenerCajero(nombre).getTurnos().forEach(t -> System.out.println(t.getCliente()));
+    };
 
 }

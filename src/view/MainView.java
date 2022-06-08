@@ -1,7 +1,6 @@
 package view;
 
 import controller.MainController;
-import model.Cajero;
 import model.menu.IMenuCall;
 import model.menu.Menu;
 import model.menu.MenuItem;
@@ -53,8 +52,8 @@ public class MainView {
     private final IMenuCall menuReportes = () -> {
         Menu menu = new Menu(
                 new ListBuilder<MenuItem>()
-                        .add(new MenuItem("Clientes", () -> new ClienteView().run()))
-                        .add(new MenuItem("Cajeros", () -> new CajeroView().run()))
+                        .add(new MenuItem("Clientes", ClienteView::new))
+                        .add(new MenuItem("Cajeros", CajeroView::new))
                         .build(), "Reportes");
 
         menu.iniciar();

@@ -47,6 +47,7 @@ public class MainController {
                     Repository.getInstance().cajeros.get(indexCajero),
                     Repository.getInstance().clientes.get(this.getRandomCliente())
             );
+            turno.setTiempoAtencion(this.getRandomBetween(5, 100));
 
             Repository.getInstance().turnos.add(turno);
             Repository.getInstance().cajeros.get(indexCajero).getTurnos().add(turno);
