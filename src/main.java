@@ -4,6 +4,12 @@
  */
 
 import model.Cliente;
+import model.menu.Menu;
+import model.menu.MenuItem;
+import model.utilitarios.ListBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,9 +22,12 @@ public class main {
      */
     public static void main(String[] args) {
 
-        Cliente cliente = new Cliente(1, "", "");
+        Menu menu = new Menu(new ListBuilder<MenuItem>()
+            .add(new MenuItem("Imprimir mensaje", () -> System.out.println("Mensaje")))
+            .add(new MenuItem("Imprimir mensaje 2", () -> System.out.println("nuevo mensaje")))
+        .build());
 
-        cliente.generar(20).forEach(System.out::println);
+        menu.iniciar();
 
     }
     
