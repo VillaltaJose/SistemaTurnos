@@ -24,7 +24,7 @@ public class CajeroView {
         System.out.println("");
         Menu menu = new Menu(
             new ListBuilder<MenuItem>()
-                .add(new MenuItem("Listar cajeros", listar))
+                .add(new MenuItem("Mostrar clientes atendidos por cajero", listar))
                 .add(new MenuItem("Ordenar por numero de personas atendidas", ordenarCajeros))
         .build(), "Reportes Cajeros");
 
