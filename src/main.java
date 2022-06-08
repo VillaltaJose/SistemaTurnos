@@ -22,12 +22,7 @@ public class main {
      */
     public static void main(String[] args) {
 
-        Menu menu = new Menu(new ListBuilder<MenuItem>()
-            .add(new MenuItem("Imprimir mensaje", () -> System.out.println("Mensaje")))
-            .add(new MenuItem("Imprimir mensaje 2", () -> System.out.println("nuevo mensaje")))
-        .build());
 
-        menu.iniciar();
 
     }
     
