@@ -24,7 +24,7 @@ public class MainView {
             new ListBuilder<MenuItem>()
                     .add(new MenuItem("Generar clientes", generarClientes))
                     .add(new MenuItem("Generar cajeros", generarCajeros))
-                    .add(new MenuItem("Generar turnos", generarTurnos))
+                    .add(new MenuItem("Turnos", TurnoView::new))
                     .add(new MenuItem("Reportes", menuReportes))
         .build(), "Menu principal");
 
@@ -41,12 +41,6 @@ public class MainView {
         System.out.print("Ingrese el numero de cajeros a generar > ");
         int cantidad = this.in.nextInt();
         this.controller.generarCajeros(cantidad);
-    };
-
-    private final IMenuCall generarTurnos = () -> {
-        System.out.println("Generando turnos, espere por favor...");
-        this.controller.generarTurnos();
-        System.out.println("Turnos generados exitosamente!");
     };
 
     private final IMenuCall menuReportes = () -> {

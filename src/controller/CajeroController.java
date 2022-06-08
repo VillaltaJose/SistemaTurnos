@@ -23,12 +23,12 @@ public class CajeroController {
     }
 
     public Cajero obtenerCajero(long id) {
-        return Repository.getInstance().cajeros.stream().filter(c -> c.getId() == id).findFirst().get();
+        return Repository.getInstance().cajeros.stream().filter(c -> c.getId() == id).findAny().orElse(null);
     }
 
     public Cajero obtenerCajero(String nombre) {
         return Repository.getInstance().cajeros.stream().filter(c -> c.getNombre().equalsIgnoreCase(nombre))
-                .findFirst().get();
+                .findAny().orElse(null);
     }
 
 }

@@ -32,7 +32,7 @@ public class ClienteController {
     }
 
     public Cliente obtenerCliente(long id) {
-        return Repository.getInstance().clientes.stream().filter(c -> c.getId() == id).findFirst().get();
+        return Repository.getInstance().clientes.stream().filter(c -> c.getId() == id).findAny().orElse(null);
     }
 
 }
