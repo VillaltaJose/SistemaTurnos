@@ -1,15 +1,11 @@
 package view;
 
 import controller.CajeroController;
-import model.Cliente;
-import model.Repository;
 import model.menu.IMenuCall;
 import model.menu.Menu;
 import model.menu.MenuItem;
 import model.utilitarios.ListBuilder;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class CajeroView {
