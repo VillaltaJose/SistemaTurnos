@@ -32,25 +32,25 @@ public class MainView {
         menu.iniciar();
     }
 
-    private IMenuCall generarClientes = () -> {
+    private final IMenuCall generarClientes = () -> {
         System.out.print("Ingrese el numero de clientes a generar > ");
         int cantidad = this.in.nextInt();
         this.controller.generarClientes(cantidad);
     };
 
-    private IMenuCall generarCajeros = () -> {
+    private final IMenuCall generarCajeros = () -> {
         System.out.print("Ingrese el numero de cajeros a generar > ");
         int cantidad = this.in.nextInt();
         this.controller.generarCajeros(cantidad);
     };
 
-    private IMenuCall generarTurnos = () -> {
+    private final IMenuCall generarTurnos = () -> {
         System.out.println("Generando turnos, espere por favor...");
         this.controller.generarTurnos();
         System.out.println("Turnos generados exitosamente!");
     };
 
-    private IMenuCall menuReportes = () -> {
+    private final IMenuCall menuReportes = () -> {
         Menu menu = new Menu(
                 new ListBuilder<MenuItem>()
                         .add(new MenuItem("Clientes", () -> new ClienteView().run()))
@@ -58,10 +58,6 @@ public class MainView {
                         .build(), "Reportes");
 
         menu.iniciar();
-    };
-
-    private IMenuCall listarTurnos = () -> {
-
     };
 
 }
